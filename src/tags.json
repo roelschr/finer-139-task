@@ -1,0 +1,10 @@
+{
+    "35":"B-DebtInstrumentCarryingAmount",
+    "37":"B-DebtInstrumentFaceAmount",
+    "38":"I-DebtInstrumentFaceAmount",
+    "41":"B-DebtInstrumentInterestRateStatedPercentage",
+    "42":"B-DebtInstrumentMaturityDate",
+    "43":"I-DebtInstrumentMaturityDate",
+    "178":"I-DebtInstrumentInterestRateStatedPercentage",
+    "185":"I-DebtInstrumentCarryingAmount"
+}
