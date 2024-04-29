@@ -1,10 +1,6 @@
 {
-    "35":"B-DebtInstrumentCarryingAmount",
-    "37":"B-DebtInstrumentFaceAmount",
-    "38":"I-DebtInstrumentFaceAmount",
+    "34":"B-DebtInstrumentBasisSpreadOnVariableRate1",
     "41":"B-DebtInstrumentInterestRateStatedPercentage",
-    "42":"B-DebtInstrumentMaturityDate",
-    "43":"I-DebtInstrumentMaturityDate",
-    "178":"I-DebtInstrumentInterestRateStatedPercentage",
-    "185":"I-DebtInstrumentCarryingAmount"
+    "87":"B-LineOfCreditFacilityMaximumBorrowingCapacity",
+    "40":"B-DebtInstrumentInterestRateEffectivePercentage"
 }
