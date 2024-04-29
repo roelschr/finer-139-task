@@ -13,6 +13,7 @@ torch = {version = "^2.3.0+cu118", source = "torch"}
 transformers = "^4.40.1"
 onnxruntime = "^1.17.3"
 accelerate = "^0.29.3"
+optimum = {extras = ["exporters"], version = "^1.19.1"}
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.29.4"
