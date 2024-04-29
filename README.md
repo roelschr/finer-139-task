@@ -74,11 +74,11 @@ The model looks fairly good, with weighted f1 score of 93% in the test set. A be
 Here is the confusion matrix for the following classes:
 ```json
 {
-    0: "O",
-    1: "B-DebtInstrumentBasisSpreadOnVariableRate1",
-    2: "B-DebtInstrumentInterestRateStatedPercentage",
-    3: "B-LineOfCreditFacilityMaximumBorrowingCapacity",
-    4: "B-DebtInstrumentInterestRateEffectivePercentage",
+    "0": "O",
+    "1": "B-DebtInstrumentBasisSpreadOnVariableRate1",
+    "2": "B-DebtInstrumentInterestRateStatedPercentage",
+    "3": "B-LineOfCreditFacilityMaximumBorrowingCapacity",
+    "4": "B-DebtInstrumentInterestRateEffectivePercentage",
 }
 ```
 
