@@ -1,12 +1,48 @@
 # finer-139-task
 
-Task: Build a Named Entity Recognition Classifier
-Dataset: FiNER
-Model: DistilBERT
+- Task: Build a Named Entity Recognition Classifier
+- Dataset: [FiNER](https://huggingface.co/datasets/nlpaueb/finer-139)
+- Model: [DistilBERT](https://huggingface.co/docs/transformers/model_doc/distilbert)
 
-## Get started
+## Quick-start
 
-gradio
+Setup your environment using [poetry](https://python-poetry.org/) and Python 3.10.
+
+```shell
+export PYTHONPATH=$PYTHONPATH:$(pwd)
+poetry install --only app,main --no-root
+```
+
+Here are a few ways for you to run the fine-tuned model:
+
+### ONNX
+```python
+from optimum.pipelines import pipeline
+
+ner_pipeline = pipeline(
+    task="token-classification",
+    model="model/finer-debt-distilbert-cased/onnx",
+    accelerator="ort"
+)
+```
+
+### Transformers
+```python
+from transformers import pipeline
+ner_pipeline = pipeline(
+    task="token-classification",
+    model="model/finer-debt-distilbert-cased",
+)
+```
+
+### Checkout our NER App
+
+```shell
+poetry run python src/app.py
+# then navigate to http://127.0.0.1:7860/ and play around with this simple NER app
+```
+
+![NER App, built with Gradio](image.png)
 
 ## Follow through
 
@@ -63,3 +99,23 @@ And this is final classification report.
 
 Finally, the model is converted to onnx. Because no quantization or optimization is applied, the model performance is expected to be the same.
 
+## Throubleshooting
+
+If you're running on a CPU/Mac machine, you can try to update the torch dependency for poetry:
+
+```shell
+poetry remove torch
+poetry source remove torch
+poetry add torch --no-cache
+```
+
+## Improvements
+
+Here's a list of things I would do better:
+
+1. Even though the model seems to perform well on the filtered dataset, it would be relevant to measure it's performance against a real testset. Most probably, inputs won't be filtered before classification.
+2. This dataset relies heavily on context. I assume these financial documents are much longer than the context accepted by a BERT model, so it would be cool to explore the
+performance of LLMs on entire documents.
+3. As we can see in the screenshot above for our Gradio App, only the first token for `B-` tag is being annotated, even though the whole number (`2.25`) seems to be the correct answer. That happens because how we are padding the input after tokenization (with `-100`). Maybe 
+we should change the strategy and test it.
+4. More engineering stuff, like tests and containers.

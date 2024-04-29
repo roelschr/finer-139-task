@@ -8,11 +8,8 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10.14"
-datasets = "^2.19.0"
-torch = {version = "^2.3.0+cu118", source = "torch"}
-transformers = "^4.40.1"
 onnxruntime = "^1.17.3"
-accelerate = "^0.29.3"
+datasets = "^2.19.0"
 optimum = {extras = ["exporters"], version = "^1.19.1"}
 
 [tool.poetry.group.dev.dependencies]
@@ -24,7 +21,13 @@ ruff = "^0.4.2"
 mlflow = "^2.12.1"
 evaluate = "^0.4.1"
 seqeval = "^1.2.2"
+torch = {version = "^2.3.0+cu118", source = "torch"}
+transformers = "^4.40.1"
+accelerate = "^0.29.3"
 
+[tool.poetry.group.app.dependencies]
+transformers = {extras = ["torch"], version = "^4.40.1"}
+gradio = "^4.28.3"
 
 [[tool.poetry.source]]
 name = "torch"
